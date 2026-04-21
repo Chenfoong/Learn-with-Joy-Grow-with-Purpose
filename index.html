@@ -320,13 +320,12 @@ section{padding:90px 0}
   position:relative;overflow:hidden
 }
 .resp-card::after{
-  content:'';position:absolute;inset:0;border-radius:var(--radius);
-  border:2px solid transparent;pointer-events:none;opacity:0;
-  transition:var(--transition);background:linear-gradient(var(--cream),var(--cream)) padding-box,
-    linear-gradient(135deg,var(--sun),var(--gold)) border-box
+  content:attr(data-icon);position:absolute;bottom:-10px;right:-4px;
+  font-size:110px;line-height:1;pointer-events:none;opacity:.08;
+  transition:var(--transition);transform:rotate(-12deg)
 }
-.resp-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.resp-card:hover::after{opacity:1}
+.resp-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(247,148,29,.3)}
+.resp-card:hover::after{opacity:.16;transform:rotate(-6deg) scale(1.1)}
 .resp-card .resp-icon{font-size:48px;margin-bottom:20px;display:block}
 .resp-card h3{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:12px}
 .resp-card p{font-size:14px;color:var(--text-light);line-height:1.65}
@@ -592,7 +591,7 @@ section{padding:90px 0}
 .team-card .pos{font-size:13px;color:var(--sun);font-weight:700;margin-bottom:12px}
 .team-card p{font-size:13px;color:var(--text-light);line-height:1.65}
 .contact-section{background:#fff}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:48px;margin-top:48px;max-width:700px;margin-left:auto;margin-right:auto}
 .contact-info h3{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:28px}
 .contact-items{display:flex;flex-direction:column;gap:20px}
 .c-item{display:flex;gap:16px;align-items:flex-start}
@@ -1064,32 +1063,32 @@ footer{
         <p class="section-desc" data-i18n="resp_desc">We don't just teach — we commit. Here's what every Sunrise family can count on, every single day.</p>
       </div>
       <div class="resp-grid">
-        <div class="resp-card fade-in">
+        <div class="resp-card fade-in" data-icon="🔬">
           <span class="resp-icon">🔬</span>
           <h3 data-i18n="r1h">Academic Excellence</h3>
           <p data-i18n="r1p">Delivering rigorous, world-class Cambridge IGCSE content in an engaging, student-friendly way that produces real results.</p>
         </div>
-        <div class="resp-card fade-in stagger-1">
+        <div class="resp-card fade-in stagger-1" data-icon="💛">
           <span class="resp-icon">💛</span>
           <h3 data-i18n="r2h">Emotional Safety</h3>
           <p data-i18n="r2p">Creating a bully-free, inclusive space where every child feels valued, respected, and truly seen.</p>
         </div>
-        <div class="resp-card fade-in stagger-2">
+        <div class="resp-card fade-in stagger-2" data-icon="📞">
           <span class="resp-icon">📞</span>
           <h3 data-i18n="r3h">Open Communication</h3>
           <p data-i18n="r3p">Regular Parent-Teacher Meetings, progress updates, and an always-open WhatsApp line for parents' peace of mind.</p>
         </div>
-        <div class="resp-card fade-in stagger-3">
+        <div class="resp-card fade-in stagger-3" data-icon="🏃">
           <span class="resp-icon">🏃</span>
           <h3 data-i18n="r4h">Healthy Development</h3>
           <p data-i18n="r4p">Enriching co-curricular activities, movement breaks, and wellness check-ins to support physical and mental health.</p>
         </div>
-        <div class="resp-card fade-in stagger-4">
+        <div class="resp-card fade-in stagger-4" data-icon="🌍">
           <span class="resp-icon">🌍</span>
           <h3 data-i18n="r5h">Global Readiness</h3>
           <p data-i18n="r5p">Equipping students with 21st-century skills — critical thinking, communication, collaboration — for a competitive world.</p>
         </div>
-        <div class="resp-card fade-in">
+        <div class="resp-card fade-in" data-icon="✨">
           <span class="resp-icon">✨</span>
           <h3 data-i18n="r6h">Continuous Innovation</h3>
           <p data-i18n="r6p">We constantly evolve our teaching methods, resources, and activities to ensure the best possible learning experience.</p>
@@ -1586,41 +1585,17 @@ footer{
               </div>
             </div>
           </div>
-          <!-- Map embed placeholder -->
-          <div style="margin-top:28px;border-radius:var(--radius);overflow:hidden;height:220px;background:linear-gradient(135deg,#e8f0fe,#f0f4ff);display:flex;align-items:center;justify-content:center;border:1px solid var(--border)">
-            <div style="text-align:center;color:var(--text-muted)">
-              <i class="fas fa-map" style="font-size:40px;margin-bottom:12px;color:var(--sun)"></i>
-              <p style="font-weight:700;font-size:15px" data-i18n="map_note">Klang, Selangor · Near Mahogani 5</p>
-              <a href="https://maps.google.com/?q=Jalan+Mahogani+5+Klang+Selangor" target="_blank" style="color:var(--sun);font-weight:800;font-size:14px" data-i18n="map_link">Open in Google Maps →</a>
-            </div>
+          <!-- Google Maps embed -->
+          <div style="margin-top:28px;border-radius:var(--radius);overflow:hidden;height:280px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(13,43,85,.1)">
+            <iframe
+              src="https://maps.google.com/maps?q=2.996279,101.445392&hl=en&z=16&output=embed"
+              width="100%" height="100%" style="border:0;display:block"
+              allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
           </div>
         </div>
-        <div class="contact-form">
-          <h3 data-i18n="form_h">Send Us a Message</h3>
-          <div class="form-group">
-            <label data-i18n="f_name">Parent / Guardian Name</label>
-            <input type="text" placeholder="Your full name">
-          </div>
-          <div class="form-group">
-            <label data-i18n="f_phone">WhatsApp Number</label>
-            <input type="tel" placeholder="+6 0XX-XXX XXXX">
-          </div>
-          <div class="form-group">
-            <label data-i18n="f_child">Child's Age</label>
-            <select>
-              <option value="" data-i18n="f_sel">-- Select Age --</option>
-              <option>7 years old</option><option>8 years old</option><option>9 years old</option>
-              <option>10 years old</option><option>11 years old</option><option>12 years old</option>
-              <option>13 years old</option><option>14 years old</option><option>15 years old</option>
-              <option>16 years old</option><option>17 years old</option><option>18 years old</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label data-i18n="f_msg">Message</label>
-            <textarea placeholder="Tell us about your child and any questions you have..."></textarea>
-          </div>
-          <button class="btn-submit" onclick="handleFormSubmit()" data-i18n="f_submit">Send Message & Enquire Now ☀️</button>
-        </div>
+
       </div>
     </div>
   </section>
